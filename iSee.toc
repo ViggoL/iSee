@@ -1,0 +1,5 @@
+## Interface: 70000
+## Title: iSee
+## Notes: A graphical tracking AddOn for FH
+iSee.lua
+iSee.xml

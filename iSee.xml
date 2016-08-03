@@ -1,0 +1,137 @@
+ <Ui xmlns="http://www.blizzard.com/wow/ui/"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Script file="iSee.lua" />
+	<Font name="Lato" font="Interface\AddOns\iSee\Lato-Regular.ttf" virtual="true">
+		<FontHeight>
+			<AbsValue val="12"/>
+		</FontHeight>
+	</Font>
+	<Frame name="iSee" parent="UIParent" inherits="BasicFrameTemplate" hidden="false" alpha="0.8" movable="true">
+		<Size x="234" y="110"/>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Scripts>
+			<OnDragStart>iSee:StartMoving();</OnDragStart>
+			<OnDragStop>iSee:StopMovingOrSizing();</OnDragStop>
+			<OnLoad>
+				iSee:RegisterForDrag("LeftButton");
+				iSee:SetMovable(true);
+				iSee:Show();
+			</OnLoad>
+		</Scripts>
+		<Layers>
+			<Layer>
+				<FontString name="Title" inherits="GameFontNormal" text="iSee">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension y="-6" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Herbs" inherits="GameFontNormal" text="Herbs">
+					<Anchors>
+						<Anchor point="LEFT TOP">
+							<Offset>
+								<AbsDimension x="33" y="-29"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Minerals" inherits="GameFontNormal" text="Minerals">
+					<Anchors>
+						<Anchor point="LEFT TOP">
+							<Offset>
+								<AbsDimension x="143" y="-29"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Yards" inherits="GameFontNormal" text="Show distance to object">
+					<Anchors>
+						<Anchor point="LEFT TOP">
+							<Offset>
+								<AbsDimension x="33" y="-63"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+				<FontString name="Interact" inherits="GameFontNormal" text="Gather automatically">
+					<Anchors>
+						<Anchor point="LEFT TOP">
+							<Offset>
+								<AbsDimension x="33" y="-83"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<Frames>
+			<CheckButton name="ckbYards" inherits="UICheckButtonTemplate" checked="true">
+				<Size x="20" y="20"/>
+				<Scripts>
+					<OnClick>
+							yards = not yards;
+					</OnClick>
+				</Scripts>
+
+				<Anchors>
+					<Anchor point="LEFT">
+						<Offset>
+							<AbsDimension x="10" y="-15" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ckbInteract" inherits="UICheckButtonTemplate" checked="true">
+				<Size x="20" y="20"/>
+				<Scripts>
+					<OnClick>
+							interact = not interact;
+					</OnClick>
+				</Scripts>
+				<Anchors>
+					<Anchor point="LEFT">
+						<Offset>
+							<AbsDimension x="10" y="-35" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ckbHerbs" inherits="UICheckButtonTemplate" checked="true">
+				<Size x="20" y="20"/>
+				<Scripts>
+					<OnClick>
+						trackherbs = not trackherbs;
+					</OnClick>
+				</Scripts>
+				<Anchors>
+					<Anchor point="LEFT TOP">
+						<Offset>
+							<AbsDimension x="10" y="-25" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+			<CheckButton name="ckbMinerals" inherits="UICheckButtonTemplate" checked="true">
+				<Size x="20" y="20"/>
+				<Scripts>
+					<OnClick>
+						trackores = not trackores;
+					</OnClick>
+				</Scripts>
+
+				<Anchors>
+					<Anchor point="LEFT TOP">
+						<Offset>
+							<AbsDimension x="120" y="-25" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</CheckButton>
+		</Frames>
+	</Frame>
+</Ui>
